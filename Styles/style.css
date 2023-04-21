@@ -1,0 +1,163 @@
+
+/*COLOCANDO O * SELECIONAMOS TODOS OS OBJETOS DO HTML
+DESSA MANEIRA, CONSEGUIMOS TIRAR TODOS OS PADRÕES QUE JÁ VEM QUANDO FAZEMOS O HTML*/
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {  /*Declaração de variáveis---Nesse momento, se usarmos :root significa que é uma variável global e pode ser usado no código inteiro*/
+    --cor-primaria: #000000;    /*use dois hifens e o nome da variavel... colocar : e atribuir o valor*/
+    --cor-secundaria: #F6F6F6;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte-primaria: 'krona one', sans-serif;
+    --fonte-secundária: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*height: 100vh;*/ /*CARREGA O BODY 100% DA TELA, SE TIVER FOOTER NÃO PRECISA*/
+    box-sizing: border-box;
+    /*background-color: #000000;*/ /*assim definimos as cores de fundo*/
+    background-color: var(--cor-primaria); /*dessa maneira utilizamos a variavel para colocar a cor de fundo*/
+    color: var(--cor-secundaria);
+}
+
+.titulo-destaque {
+    color: var(--cor-terciaria);
+}
+
+h1{
+    font-weight: bold;
+}
+
+.apresentacao {
+    /*margin: 10% 15%;*/ /*valor da borda para fora do componente... primeiro valor vertical, segundo horizontal*/
+    padding: 5% 15%; 
+    display: flex; /*cria uma flex box*/
+    align-items: center; /*centraliza os elementos*/
+    justify-content: space-between; /*coloca espaço entre os elementos, ajustando nas extremidades*/
+    gap: 82px;
+}
+
+.apresentacao__conteudo {
+    /*width: 615px;*/ /*tamanho fixo da flexbox, tamanho do main*/
+    width: 50%; /*esta unidade, informa que a imagem estara em 50% do tamanho do elemento pai dela, no caso o main*/
+    display: flex; /*cria uma flex box*/
+    flex-direction: column; /*coloca os elementos da flex box em formato de colunas, não de linhas que vem como padrão*/   
+    gap: 40px; /*distancia entre cada elemento dentro da flexbox*/
+}
+
+.apresentacao__conteudo__titulo {
+    /*font-size: 36px;*/ /*Assim definimos o valor da fonte em pixels*/
+    font-size: 2,25rem; /*Dessa maneira definimos o valor da fonte em rem, que se torna responsivo, se adapta ao navegador 1rem = 16pixels*/
+    font-family: 'Krona One', sans-serif;
+}
+
+.apresentacao__conteudo__paragrafo {
+    font-size: 1.5rem;
+    /*font-family: 'Montserrat', sans-serif;*/ /*atribuindo uma fonte no formato padrão*/
+    font-family: var(--fonte-secundária); /*atribuindo uma fonte através de variável*/
+}
+
+.apresentacao__links {
+    display: flex; /*cria uma flex box*/
+    justify-content: space-between; /*define que formato de flex box, nesse caso, deixa um espaço entre eles*/
+    flex-direction: column;
+    gap: 32px;
+    align-items: center; /*centraliza os elementos, em referencia ao flex box*/
+}
+
+.apresentacao__links__subtitulo {
+    /*font-family: 'Krona One', sans-serif;*/
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;    
+}
+
+.apresentacao__links__navegacao { /*estilo da ancora, link, botão*/
+    /*background-color: #22d4fd;*/ /*cor de fundo do botão*/
+    display: flex;
+    justify-content: center;
+    /*justify-content: space-evenly*//*coloca espaço igual entre todos os elementos da flex box*/
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria); /*estiliza a borda, espessura da linha, tipo da linha, cor da linha*/
+    text-align: center; /*centraliza o texto*/
+    padding: 21.5px 0; /*distancia entre o texto e a borda, 21.5px eixo vertical 0 eixo horizontal*/
+    width: 50%; /*largura do botão -- pode ser em pixels (fixo) ou em percentual, que é o tamanho em relação ao elemento pai*/
+    border-radius: 8px; /*arredondamento dos cantos da borda*/
+    font-size: 1.5rem; /*tamanho da fonte*/
+    font-weight: 600; /*peso da fonte, ex montserrat 400 , montserra 600 semibold*/
+    text-decoration: none; /*retira a aparencia de "clicável"*/
+    color: #f6f6f6; /*cor da fonte*/
+    /*font-family: 'Montserrat', sans-serif;*/ /*nome da fonte*/
+    font-family: var(--fonte-secundária);
+}
+
+.apresentacao__links__link:hover {  /*quando usamos o :hover iremos estilizar tudo o que vai acontecer quando passar o mouse*/
+    background-color: var(--cor-hover);
+}
+
+.rodape {
+    padding: 24px;
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    text-align: center;
+    /*font-family: 'montserrat', sans-serif;*/
+    font-family: var(--fonte-secundária);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.cabecalho {
+    padding: 2% 0% 0% 15%; /*quando informamos 4 valores a order é ACIMA, A DIREITA, ABAIXO E ESQUERDA*/
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.apresentacao__imagem {
+    width: 50%; /*esta unidade, informa que a imagem estara em 50% do tamanho do elemento pai dela, no caso o main*/
+}
+
+.cabecalho__menu__link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #22D4FD;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-family: var(--fonte-secundária);
+}
+
+@media (max-width: 1200px) {   /*este é o media queries, que faz com que o html seja personalizado se atender a condição informada*/
+                               /*Neste caso, se a resolução da tela for menor que 1200px a flex box de apresentação será invertida para melhor visualizar*/
+
+    .cabecalho {
+        padding: 10%;
+    }
+    
+    .cabecalho__menu {
+        justify-content: center;
+    }
+    
+    .apresentacao {             
+        flex-direction: column-reverse;
+    }
+
+    .apresentacao__conteudo {
+        width: auto;  /*Quando usamos tela grande, definimos o width como 50% mais ou menos, porém, quando usamos as telas pequenas precisamos*/
+    }                   /*usar o width inteiro, ai definimos ele como auto*/
+
+}
+
+/*
+span{
+    color: #22D4FD;
+    border: 1px solid #22D4FD;
+    padding: 10px;
+}*/
